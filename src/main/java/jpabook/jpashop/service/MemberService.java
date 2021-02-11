@@ -1,5 +1,6 @@
 package jpabook.jpashop.service;
 
+import jpabook.jpashop.controller.MemberForm;
 import jpabook.jpashop.domain.Member;
 import jpabook.jpashop.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,10 @@ public class MemberService {
     //회원 전체 조회
     public List<Member> findMembers() {
         return memberRepository.findAll();
+    }
+    //미완성
+    public List<MemberForm> findAllMembers() {
+        return memberRepository.memberFindAll();
     }
 
     //단건 회원 조회

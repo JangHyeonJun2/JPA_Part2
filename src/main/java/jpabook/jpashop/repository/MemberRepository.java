@@ -1,5 +1,6 @@
 package jpabook.jpashop.repository;
 
+import jpabook.jpashop.controller.MemberForm;
 import jpabook.jpashop.domain.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -30,6 +31,11 @@ public class MemberRepository {
     public List<Member> findByName(String name) {
         return em.createQuery("select m from Member m where m.name = :name", Member.class)
                 .setParameter("name", name)
+                .getResultList();
+    }
+    //미완성
+    public List<MemberForm> memberFindAll() {
+        return em.createQuery("select m from Member m", MemberForm.class)
                 .getResultList();
     }
 }
