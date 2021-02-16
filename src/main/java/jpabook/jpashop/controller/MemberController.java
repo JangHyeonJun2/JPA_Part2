@@ -33,7 +33,7 @@ public class MemberController {
     public String create(@Valid MemberForm memberForm, BindingResult result) {
 
         if (result.hasErrors()) {
-            return "members/createForm";
+            return "members/createMemberForm";
         }
         Address address = new Address(memberForm.getCity(), memberForm.getStreet(), memberForm.getZipcode());
 
