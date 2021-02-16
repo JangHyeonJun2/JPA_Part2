@@ -59,16 +59,20 @@ public class ItemController {
     }
 
     @PostMapping("{itemId}/edit")
-    public String updateItem(@ModelAttribute("form") BookForm bookForm) {//여기서 @ModelAttribute("form")의 form은 updateItemForm.html의 ${form}을 받는다.
-        Book book = new Book();
-        book.setId(bookForm.getId());
-        book.setName(bookForm.getName());
-        book.setPrice(bookForm.getPrice());
-        book.setStockQuantity(bookForm.getStockQuantity());
-        book.setAuthor(bookForm.getAuthor());
-        book.setIsbn(book.getIsbn());
+    public String updateItem(@PathVariable Long itemId, @ModelAttribute("form") BookForm bookForm) {//여기서 @ModelAttribute("form")의 form은 updateItemForm.html의 ${form}을 받는다.
+//        Book book = new Book();
+//        book.setId(bookForm.getId());
+//        book.setName(bookForm.getName());
+//        book.setPrice(bookForm.getPrice());
+//        book.setStockQuantity(bookForm.getStockQuantity());
+//        book.setAuthor(bookForm.getAuthor());
+//        book.setIsbn(book.getIsbn());
+//
+//        itemService.saveItem(book);
 
-        itemService.saveItem(book);
+        itemService.updateItem(itemId,bookForm.getName(), bookForm.getPrice(), bookForm.getStockQuantity(), bookForm.getAuthor(), bookForm.getIsbn());
+
+
         return "redirect:/items";
 
     }
